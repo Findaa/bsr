@@ -6,6 +6,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import pl.recruitment.retentionmanager.services.ControllerHelper;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 public class SiteController {
     @Autowired
@@ -32,8 +34,12 @@ public class SiteController {
     }
 
     @GetMapping("/list")
+    public String processList(HttpSession session){
+        return helper.setProductsData(session);
+    }
+
+    @GetMapping("/displaylist")
     public String displayList(){
-        helper.setProductsData();
         return "list";
     }
 

@@ -2,9 +2,17 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <html>
 <head>
-    <title>
-        Test
-    </title>
+    <head>
+        <title>
+            Test
+        </title>
+        <link href="${pageContext.request.contextPath}/resources/static/css/style.css" rel="stylesheet" >
+
+        <spring:url value="/css/style.css" var="css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <link href="${css}" rel="stylesheet" />
+
+    </head>
 </head>
 <body>
 <h2>

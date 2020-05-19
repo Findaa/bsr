@@ -7,6 +7,7 @@ import pl.recruitment.retentionmanager.model.Terms;
 import pl.recruitment.retentionmanager.services.ControllerHelper;
 import pl.recruitment.retentionmanager.services.TermsServices;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Component
@@ -19,8 +20,9 @@ public class ControllerHelperImpl implements ControllerHelper {
     TermsServices terms;
 
     @Override
-    public List<Terms> setProductsData(){
+    public String setProductsData(HttpSession session){
         System.out.println("Got into setProductsData with returning list of: " + terms.findAll());
-        return terms.findAll();
+        session.setAttribute("list",terms.findAll());
+        return "redirect:/displaylist";
     }
 }
