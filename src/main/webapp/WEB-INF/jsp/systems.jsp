@@ -29,32 +29,21 @@
         <tr>
             <th><font color="#32cd32"> Numer umowy</font></th>
             <th><font color="#32cd32"> System</font></th>
-            <th><font color="#32cd32"> Od</font></th>
-            <th><font color="#32cd32"> Do</font></th>
-            <th><font color="#32cd32"> Wplywy</font></th>
-            <th><font color="#32cd32"> W skali</font></th>
-            <th><font color="#32cd32"> Aktywna</font></th>
-            <th><font color="#32cd32"> Opcje</font></th>
         </tr>
         </thead>
         <tbody>
         <c:forEach items="${list}" var="pp">
             <tr>
-                <td><c:out value="${pp.orderNumber}"/></td>
-                <td><c:out value="${pp.systemName}"/></td>
-                <td><c:out value="${pp.fromDate}"/></td>
-                <td><c:out value="${pp.toDate}"/></td>
-                <td><c:out value="${pp.amount}"/> <c:out value="${pp.amountType}"/></td>
-                <td><c:out value="${pp.amountPeriod}"/></td>
-                <td><c:out value="${pp.active ? 'Yes' : 'No'}"/></td>
-                <td><a href="/retention_manager_war_exploded/edit/${pp.id}">Edit</a></td>
+                <td><c:out value="${pp.system}"/></td>
+                <td><c:out value="${pp.desc}"/></td>
+                <td><a href="/retention_manager_war_exploded/editsystem/${pp.id}">Edit</a></td>
             </tr>
         </c:forEach>
         </tbody>
     </table>
     <br/>
     <br/>
-    <a href="/retention_manager_war_exploded/add">Add new term</a>
+    <a href="/retention_manager_war_exploded/addsystem">Add new system</a>
     <div class="logout">
         <form:form method="get" action="list">
             <input type="submit" value="All documents">

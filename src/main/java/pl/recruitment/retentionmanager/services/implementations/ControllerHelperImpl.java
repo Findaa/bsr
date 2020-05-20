@@ -3,6 +3,8 @@ package pl.recruitment.retentionmanager.services.implementations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.ui.Model;
+import pl.recruitment.retentionmanager.model.system.System;
+import pl.recruitment.retentionmanager.model.system.SystemDto;
 import pl.recruitment.retentionmanager.model.term.AmountPeriod;
 import pl.recruitment.retentionmanager.model.term.AmountType;
 import pl.recruitment.retentionmanager.model.term.Term;
@@ -13,6 +15,8 @@ import pl.recruitment.retentionmanager.services.TermsServices;
 
 import javax.servlet.http.HttpSession;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
 public class ControllerHelperImpl implements ControllerHelper {
@@ -27,9 +31,23 @@ public class ControllerHelperImpl implements ControllerHelper {
 
     @Override
     public String setProductsData(HttpSession session) {
-        System.out.println("Got into setProductsData with returning list of: " + terms.findAll());
+        java.lang.System.out.println("Got into setProductsData with returning list of: " + terms.findAll());
         session.setAttribute("list", terms.findAll());
         return "redirect:/displaylist";
+    }
+
+    @Override
+    public String setSystemData(HttpSession session) {
+        List<System> l = systems.findAll();
+        List<SystemDto> ld = new ArrayList<>();
+        l.forEach(system -> {
+            SystemDto dto = new SystemDto(
+                    (double) system.getId(), system.getName(), system.getInfo());
+            ld.add(dto);
+        });
+        java.lang.System.out.println("Got into setSystemData with returning list of: " + ld);
+        session.setAttribute("list", ld);
+        return "redirect:/displaysystems";
     }
 
     @Override
@@ -44,7 +62,7 @@ public class ControllerHelperImpl implements ControllerHelper {
         Term term = terms.findAllById(id);
         session.setAttribute("term", term);
         session.setAttribute("id", id);
-        System.out.println("ProcessEditTerms id: " + id);
+        java.lang.System.out.println("ProcessEditTerms id: " + id);
         model.addAttribute("newterm", new TermDto());
     }
 
@@ -72,7 +90,7 @@ public class ControllerHelperImpl implements ControllerHelper {
             t.setSystem(systems.findAllByName(t.getSystemName()));
             terms.save(t);
         } catch (NullPointerException npe) {
-            System.out.println("Catched npe, probably in setSystem. Ensure system with called name is present in database.");
+            java.lang.System.out.println("Catched npe, probably in setSystem. Ensure system with called name is present in database.");
             npe.printStackTrace();
         }
         session.setAttribute("list", terms.findAll());
@@ -85,8 +103,8 @@ public class ControllerHelperImpl implements ControllerHelper {
     }
 
     private LocalDate dateService(String dateStr) {
-        System.out.println("Date string: " + dateStr);
-        System.out.println("Substr: " + dateStr.substring(0, 10));
+        java.lang.System.out.println("Date string: " + dateStr);
+        java.lang.System.out.println("Substr: " + dateStr.substring(0, 10));
         return LocalDate.parse(dateStr.substring(0, 10));
     }
 }
