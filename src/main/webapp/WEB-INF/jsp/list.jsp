@@ -43,7 +43,7 @@
         <c:forEach items="${list}" var="pp">
             <tr>
                 <td><c:out value="${pp.orderNumber}"/></td>
-                <td><c:out value="${pp.system}"/></td>
+                <td><c:out value="${pp.systemName}"/></td>
                 <td><c:out value="${pp.fromDate}"/></td>
                 <td><c:out value="${pp.toDate}"/></td>
                 <td><c:out value="${pp.amount}"/> <c:out value="${pp.amountType}"/></td>
@@ -67,6 +67,10 @@
         <form:form method="get" action="about">
             <input type="submit" value="About app">
         </form:form>
+        <form:form method="get" action="about">
+            <input type="submit" value="About app">
+        </form:form>
+
 </div>
 </body>
 </html>

@@ -3,7 +3,7 @@ package pl.recruitment.retentionmanager.services.implementations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import pl.recruitment.retentionmanager.model.Term;
+import pl.recruitment.retentionmanager.model.term.Term;
 
 import pl.recruitment.retentionmanager.repositories.TermsRepo;
 import pl.recruitment.retentionmanager.services.TermsServices;

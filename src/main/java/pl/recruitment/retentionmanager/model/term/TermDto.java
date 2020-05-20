@@ -1,4 +1,4 @@
-package pl.recruitment.retentionmanager.model;
+package pl.recruitment.retentionmanager.model.term;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

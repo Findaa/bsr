@@ -1,22 +1,22 @@
-package pl.recruitment.retentionmanager.model;
+package pl.recruitment.retentionmanager.model.term;
 
+import com.sun.istack.Nullable;
 import lombok.*;
+import pl.recruitment.retentionmanager.model.system.System;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.Calendar;
-import java.util.Date;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name="Terms")
 public class Term {
-    public Term(String system, int request, String orderNumber,
+    public Term(String systemName, int request, String orderNumber,
                 LocalDate fromDate, LocalDate toDate, double amount,
                 AmountType amountType, AmountPeriod amountPeriod,
                 int authorizationPercent, boolean isActive) {
-        this.system = system;
+        this.systemName = systemName;
         this.request = request;
         this.orderNumber = orderNumber;
         this.fromDate = fromDate;
@@ -28,12 +28,13 @@ public class Term {
         this.active = isActive;
     }
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="terms_id")
     @Getter @Setter private Long id;
     @Column(name="listed_system")
-    @Getter @Setter private String system;
+    @Getter @Setter private String systemName;
     @Column(name="request_no")
     @Getter @Setter private int request;
     @Column(name="order_no")
@@ -52,4 +53,11 @@ public class Term {
     @Getter @Setter private int authorizationPercent;
     @Column(name="active_flag")
     @Getter @Setter private boolean active;
+    @Nullable
+
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(name = "term_product",
+            joinColumns = @JoinColumn(name = "listed_system"),
+            inverseJoinColumns = @JoinColumn(name = "system_name"))
+    @Getter @Setter private System system;
 }

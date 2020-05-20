@@ -29,7 +29,7 @@
             <td>System</td> <td>Request</td> <td>Order-number</td> <td>from</td></d>
         </tr>
         <tr>
-            <td><input type="text" name="system" placeholder="System" required value="${term.system}"/></td>
+            <td><input type="text" name="system" placeholder="System" required value="${term.systemName}"/></td>
             <td><input type="text" name="request" placeholder="Request" required value="${term.request}"/></td>
             <td><input type="text" name="orderNumber" placeholder="Order number" value="${term.orderNumber}"/></td>
             <td><input type="text" name="fromDate" placeholder="Date from" required value="${term.fromDate}"/></td>

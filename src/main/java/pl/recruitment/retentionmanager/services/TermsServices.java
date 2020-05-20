@@ -2,7 +2,7 @@ package pl.recruitment.retentionmanager.services;
 
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
-import pl.recruitment.retentionmanager.model.Term;
+import pl.recruitment.retentionmanager.model.term.Term;
 
 import java.util.List;
 
