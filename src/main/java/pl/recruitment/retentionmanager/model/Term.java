@@ -3,17 +3,19 @@ package pl.recruitment.retentionmanager.model;
 import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.util.Calendar;
 import java.util.Date;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name="Terms")
-public class Terms {
-    public Terms(String system, int request, String orderNumber,
-                 Date fromDate, Date toDate, double amount,
-                 AmountType amountType, AmountPeriod amountPeriod,
-                 int authorizationPercent, boolean isActive) {
+public class Term {
+    public Term(String system, int request, String orderNumber,
+                LocalDate fromDate, LocalDate toDate, double amount,
+                AmountType amountType, AmountPeriod amountPeriod,
+                int authorizationPercent, boolean isActive) {
         this.system = system;
         this.request = request;
         this.orderNumber = orderNumber;
@@ -23,7 +25,7 @@ public class Terms {
         this.amountType = amountType;
         this.amountPeriod = amountPeriod;
         this.authorizationPercent = authorizationPercent;
-        this.isActive = isActive;
+        this.active = isActive;
     }
 
     @Id
@@ -37,9 +39,9 @@ public class Terms {
     @Column(name="order_no")
     @Getter @Setter private String orderNumber;
     @Column(name="date_from")
-    @Getter @Setter private Date fromDate;
+    @Getter @Setter private LocalDate fromDate;
     @Column(name="date_to")
-    @Getter @Setter private Date toDate;
+    @Getter @Setter private LocalDate toDate;
     @Column(name="amount")
     @Getter @Setter private double amount;
     @Column(name="amount_type")
@@ -49,5 +51,5 @@ public class Terms {
     @Column(name="auth_percent")
     @Getter @Setter private int authorizationPercent;
     @Column(name="active_flag")
-    @Getter @Setter private boolean isActive;
+    @Getter @Setter private boolean active;
 }

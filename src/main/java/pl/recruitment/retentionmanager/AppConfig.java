@@ -1,5 +1,7 @@
 package pl.recruitment.retentionmanager;
 
+import org.omg.CORBA.Environment;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -7,6 +9,7 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
@@ -19,6 +22,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
+import java.util.Properties;
 
 @Configuration
 @EnableWebMvc
@@ -70,6 +74,26 @@ public class AppConfig implements WebMvcConfigurer {
         factory.setPackagesToScan("pl.recruitment.retentionmanager");
         factory.setDataSource(dataSource());
         return factory;
+    }
+
+    Properties hibernateProperties() {
+        return new Properties() {
+            {
+                setProperty("hibernate.hbm2ddl.auto", "create-drop");
+                setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
+                setProperty("hibernate.globally_quoted_identifiers",
+                        "true");
+            }
+        };
+    }
+
+    @Bean
+    public LocalSessionFactoryBean sessionFactory() {
+        LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
+        sessionFactory.setDataSource(dataSource());
+        sessionFactory.setPackagesToScan("pl.recruitment.retentionmanager");
+        sessionFactory.setHibernateProperties(hibernateProperties());
+        return sessionFactory;
     }
 
     @Bean

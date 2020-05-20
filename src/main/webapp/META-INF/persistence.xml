@@ -1,6 +1,6 @@
 <persistence-unit name="pl.recruitment.retentionmanager">
     <description>EntityManager</description>
-    <class>pl.recruitment.retentionmanager.model.Terms</class>
+    <class>pl.recruitment.retentionmanager.model.Term</class>
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <properties>
         <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
