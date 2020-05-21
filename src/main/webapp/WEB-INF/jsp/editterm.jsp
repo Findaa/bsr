@@ -68,10 +68,10 @@
         </tr>
         </tbody>
     </table>
-</div>
-<input type="submit" value="Edit"/>
-<div class="relation">
+    <input type="submit" value="Edit"/>
     </form:form>
+</div>
+<div class="relation">
 
     <form:form method="post" action="delete/${id}">
     <input type="submit" value="Delete term"/>

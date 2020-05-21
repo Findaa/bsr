@@ -35,6 +35,7 @@ public class AppConfig implements WebMvcConfigurer {
         registry.setOrder(Integer.MIN_VALUE);
         registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
         registry.addResourceHandler("/css/**").addResourceLocations("/WEB-INF/static/css/");
+        registry.addResourceHandler("/js/**").addResourceLocations("/WEB-INF/static/js");
     }
 
     @Bean

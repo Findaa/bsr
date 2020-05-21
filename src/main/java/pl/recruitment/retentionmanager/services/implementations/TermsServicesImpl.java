@@ -48,4 +48,9 @@ public class TermsServicesImpl implements TermsServices {
     public void delete(double id){
         repo.delete(repo.findAllById((long) id));
     }
+
+    @Override
+    public Term findAllBySystemName(String name){
+        return repo.findAllBySystemName(name);
+    }
 }

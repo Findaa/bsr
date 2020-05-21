@@ -13,4 +13,5 @@ public interface SystemServices {
     System findAllById(Long id);
     System findAllByName(String name);
     void save(System system);
+    void delete(double id);
 }

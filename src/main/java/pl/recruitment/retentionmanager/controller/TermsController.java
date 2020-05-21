@@ -9,13 +9,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import pl.recruitment.retentionmanager.model.term.TermDto;
 import pl.recruitment.retentionmanager.services.ControllerHelper;
+import pl.recruitment.retentionmanager.services.implementations.ControllerHelperImpl;
 
 import javax.servlet.http.HttpSession;
 
 @Controller
 public class TermsController {
     @Autowired
-    public TermsController(ControllerHelper helper) {
+    public TermsController(ControllerHelperImpl helper) {
         this.helper = helper;
     }
 
@@ -49,7 +50,6 @@ public class TermsController {
         Long id = (long) idd;
         helper.processEditTerms(id, session, model);
         return "redirect:/editterm";
-
     }
 
     @GetMapping("/editterm")
@@ -66,5 +66,17 @@ public class TermsController {
     @GetMapping("/alist")
     public String showActive(HttpSession session) {
         return helper.setActiveProductsData(session);
+    }
+
+    @GetMapping("/loadcsv")
+    public String loadCsv(Model model) {
+        return "csvloader";
+    }
+
+    @PostMapping("/processLoadCsv")
+    public String loadCsv(@ModelAttribute("path") String path, HttpSession session) {
+        System.out.println("In controller: " + path);
+        helper.createRecordsFromXlxs(path);
+        return helper.setProductsData(session);
     }
 }

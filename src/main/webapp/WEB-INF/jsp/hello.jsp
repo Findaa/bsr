@@ -18,13 +18,6 @@
 <br/>
 <br/>
 <br/>
-<h2>
-    ${message}
-</h2>
-<div class="menu"></div>
-<form:form method="get" action="redir">
-    <input type="submit" value="Link"> <br/>
-</form:form><br/>
 <div class="logout">
     <form:form method="get" action="list">
         <input type="submit" value="All documents">

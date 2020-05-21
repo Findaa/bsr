@@ -15,22 +15,27 @@ public class SystemServicesImpl implements SystemServices {
     SystemRepo repo;
 
     @Override
-    public List<System> findAll(){
+    public List<System> findAll() {
         return repo.findAll();
     }
 
     @Override
-    public System findAllById(Long id){
+    public System findAllById(Long id) {
         return repo.findAllById(id);
     }
 
     @Override
-    public System findAllByName(String name){
+    public System findAllByName(String name) {
         return repo.findAllByName(name);
     }
 
     @Override
-    public void save(System system){
+    public void save(System system) {
         repo.save(system);
+    }
+
+    @Override
+    public void delete(double id) {
+        repo.delete(findAllById((long) id));
     }
 }

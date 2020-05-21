@@ -8,6 +8,8 @@ import pl.recruitment.retentionmanager.model.term.AmountType;
 import pl.recruitment.retentionmanager.model.term.Term;
 import pl.recruitment.retentionmanager.services.SystemServices;
 import pl.recruitment.retentionmanager.services.TermsServices;
+import pl.recruitment.retentionmanager.services.implementations.SystemServicesImpl;
+import pl.recruitment.retentionmanager.services.implementations.TermsServicesImpl;
 
 import javax.annotation.PostConstruct;
 import java.time.LocalDate;
@@ -18,7 +20,7 @@ import static pl.recruitment.retentionmanager.model.term.AmountType.NET;
 @Component
 public class InitializeDatabase {
     @Autowired
-    public InitializeDatabase(TermsServices terms, SystemServices systems) {
+    public InitializeDatabase(TermsServicesImpl terms, SystemServicesImpl systems) {
         this.terms = terms;
         this.systems = systems;
     }
@@ -66,13 +68,9 @@ public class InitializeDatabase {
         terms.save(new Term("WYMYSLONYSTWOR2", 1024, "202/2021",
                 LocalDate.of(2017, 01, 12), LocalDate.of(2021, 12, 31),
                 444.00, AmountType.BRU, AmountPeriod.YEAR, 2, false));
-        java.lang.System.out.println("Count of terms: " + terms.findAll().size());
         try {
             terms.findAll().forEach(term -> {
-                        java.lang.System.out.println("term getname: " + term.getSystemName());
-                        java.lang.System.out.println("system findallbyname: " + systems.findAllByName(term.getSystemName()));
                         term.setSystem(systems.findAllByName(term.getSystemName()));
-                        java.lang.System.out.println("get system name from term: " + term.getSystem().getName());
                     }
             );
         } catch (NullPointerException npe) {

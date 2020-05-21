@@ -10,12 +10,32 @@
             Test
         </title>
         <link href="${pageContext.request.contextPath}/resources/static/css/style.css" rel="stylesheet">
-        <script src="../static/js/sorttable.js"></script>
-        <spring:url value="/css/style.css" var="css"/>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-        <link href="${css}" rel="stylesheet"/>
-
-
+        <%--        <link href="${css}" rel="stylesheet"/>--%>
+        <%--        <spring:url value="/css/style.css" var="css"/>--%>
+        <spring:url value="/js/jquery.js" var="jq"/>
+        <spring:url value="/js/dataTables.js" var="dt"/>
+        <script src="${jq}"></script>
+        <link rel="stylesheet" type="text/css" href="../static/css/dataTables.css">
+        <script type="text/javascript" src="${dt}"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("#maintable").dataTable({
+                    "bJQueryUI" : true,
+                    "sPaginationType" : "full_numbers",
+                    "bRetrieve" : true,
+                    "bFilter" : true,
+                    "iDisplayLength": 10,
+                    "bProcessing" : true,
+                    "bServerSide" : false,
+                    "aoColumns" : [ { "bSearchable" : false,"bVisible" : false,
+                        "asSorting" : [ "asc" ] },
+                        {"sWidth" : "50%","bSortable" : true },
+                        {"sWidth" : "50%","bSortable" : true },
+                    ]
+                });
+                });
+            });
+        </script>
     </head>
 </head>
 <body>
@@ -24,18 +44,18 @@
 <br/>
 <br/>
 <div>
-    <table id="maintable" class="sortable">
+    <table id="maintable" class="display">
         <thead>
         <tr>
-            <th><font color="#32cd32"> Numer umowy</font></th>
-            <th><font color="#32cd32"> System</font></th>
+            <th>Numer umowy</th>
+            <th>System</th>
         </tr>
         </thead>
         <tbody>
         <c:forEach items="${list}" var="pp">
             <tr>
-                <td><c:out value="${pp.system}"/></td>
-                <td><c:out value="${pp.desc}"/></td>
+                <td><c:out value="${pp.name}"/></td>
+                <td><c:out value="${pp.info}"/></td>
                 <td><a href="/retention_manager_war_exploded/editsystem/${pp.id}">Edit</a></td>
             </tr>
         </c:forEach>
@@ -43,7 +63,7 @@
     </table>
     <br/>
     <br/>
-    <a href="/retention_manager_war_exploded/addsystem">Add new system</a>
+    <a href="/retention_manager_war_exploded/addsys">Add new system</a>
     <div class="logout">
         <form:form method="get" action="list">
             <input type="submit" value="All documents">

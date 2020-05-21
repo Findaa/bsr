@@ -15,4 +15,5 @@ public interface TermsServices {
     void add(Term term);
     List<Term> fetchActive();
     void delete(double id);
+    Term findAllBySystemName(String name);
 }
