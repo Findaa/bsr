@@ -1,3 +1,5 @@
 .idea
 .lsp
-/src/front-app/
+.target
+.contentfiles
+/contentfiles
