@@ -14,8 +14,6 @@ import java.util.List;
 public interface TermsServices {
     List<Term> findAll();
 
-    void save(Term term);
-
     Term findAllById(Long id);
 
     void add(Term term);

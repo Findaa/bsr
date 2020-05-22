@@ -6,6 +6,7 @@ import pl.recruitment.retentionmanager.AppConfig;
 
 /**
  * Class automating configuration based on classes.
+ * @author: Michal Cop
  */
 @Component
 class SpringInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {

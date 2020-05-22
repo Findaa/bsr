@@ -15,6 +15,7 @@ import javax.servlet.http.HttpSession;
 
 /**
  * Controller used mostly to operate on @Term object and it's views.
+ * @author: Michal Cop
  */
 @Controller
 public class TermsController {

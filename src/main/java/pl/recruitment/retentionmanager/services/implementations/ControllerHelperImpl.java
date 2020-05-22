@@ -125,7 +125,7 @@ public class ControllerHelperImpl implements ControllerHelper {
             t.setRequest(Integer.parseInt(newTerm.getRequest()));
             t.setSystemName(newTerm.getSystem());
             t.setSystem(systems.findAllByName(t.getSystemName()));
-            terms.save(t);
+            terms.add(t);
         } catch (NullPointerException npe) {
             java.lang.System.out.println("Catched npe, probably in setSystem. Ensure system with called name is present in database.");
             npe.printStackTrace();
@@ -156,7 +156,7 @@ public class ControllerHelperImpl implements ControllerHelper {
         t.setSystem(s);
         t.setSystemName(s.getName());
         systems.save(s);
-        terms.save(t);
+        terms.add(t);
         session.setAttribute("list", systems.findAll());
         return "systems";
     }

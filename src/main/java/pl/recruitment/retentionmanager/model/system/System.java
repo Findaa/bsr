@@ -10,6 +10,7 @@ import javax.persistence.*;
 /**
  * Database table pattern mapped into java object.
  * This is a description for a real System product in a company sold to customers in @Terms.
+ * @author: Michal Cop
  */
 @AllArgsConstructor
 @NoArgsConstructor

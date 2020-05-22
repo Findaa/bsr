@@ -26,11 +26,6 @@ public class TermsServicesImpl implements TermsServices {
     }
 
     @Override
-    public void save(Term term) {
-        repo.save(term);
-    }
-
-    @Override
     public Term findAllById(Long id) {
         return repo.findAllById(id);
     }

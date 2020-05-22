@@ -100,7 +100,7 @@ public class PoiUtilityImpl implements PoiUtility {
             term.setAuthorizationPercent(Integer.parseInt(el.getAuthorizationPercent()));
             term.setActive(el.isActive());
             try {
-                terms.save(term);
+                terms.add(term);
             } catch (Error e) {
                 java.lang.System.out.println("Error in save");
             }

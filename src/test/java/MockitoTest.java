@@ -14,7 +14,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
-public class TestCrud {
+public class MockitoTest {
     
     private List<System> generateList() {
         List<System> insertion = new ArrayList<>();

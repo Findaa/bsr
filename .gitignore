@@ -3,3 +3,5 @@
 .target
 .contentfiles
 /contentfiles
+/lsp
+/target

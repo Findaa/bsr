@@ -10,6 +10,7 @@ import pl.recruitment.retentionmanager.services.TermsServices;
 
 /**
  * ControllerAdvice method catching exceptions.
+ * @author: Michal Cop
  */
 @ControllerAdvice
 public class ErrorController {
@@ -20,6 +21,7 @@ public class ErrorController {
      * Display list component after 404 error.
      * @param e Exception of NotFound type.
      * @return View of list component.
+     * @author: Michal Cop
      */
     @ResponseStatus(value = HttpStatus.NOT_FOUND, reason = "Not Found")
     @ExceptionHandler(HttpClientErrorException.NotFound.class)
@@ -33,6 +35,7 @@ public class ErrorController {
      * Display list component after 500 error.
      * @param e Exception of Internal Server error.
      * @return View of list component.
+     * @author: Michal Cop
      */
     @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR, reason = "Internal Server Error")
     @ExceptionHandler(HttpServerErrorException.InternalServerError.class)

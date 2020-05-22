@@ -1,6 +1,7 @@
 package pl.recruitment.retentionmanager.services.implementations;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Component;
 import pl.recruitment.retentionmanager.model.system.System;
 import pl.recruitment.retentionmanager.repositories.SystemRepo;

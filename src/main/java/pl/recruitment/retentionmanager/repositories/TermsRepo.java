@@ -9,6 +9,8 @@ import java.util.List;
 
 /**
  * Java persistence repository. Extended interface allows for crud operations on @Entity object.
+ * Methods described in implementations.
+ * @author: Michal Cop
  */
 @Repository
 @Component

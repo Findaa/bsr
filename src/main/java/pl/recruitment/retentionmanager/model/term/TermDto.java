@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * Data transfer object for jsp forms.
+ * @author: Michal Cop
  */
 @NoArgsConstructor
 @AllArgsConstructor

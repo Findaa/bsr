@@ -16,6 +16,7 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.handler.SimpleMappingExceptionResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import javax.persistence.EntityManagerFactory;
@@ -26,6 +27,7 @@ import java.util.Properties;
  * This is a main configuration class. It is enabled to work with many configuration classes by @SpringInitializer class.
  * More detailed data used in configuration is presented in @app.yml file linked in @PropertySource.
  * Usage of Hibernate combined with @JpaRepository requires @EnableJpaRepositories annotation.
+ * @author: Michal Cop
  */
 @Configuration
 @EnableWebMvc

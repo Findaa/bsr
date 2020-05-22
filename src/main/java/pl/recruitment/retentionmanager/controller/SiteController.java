@@ -9,6 +9,7 @@ import pl.recruitment.retentionmanager.services.implementations.ControllerHelper
 
 /**
  * Main controller required for basic site to work.
+ * @author: Michal Cop
  */
 @Controller
 public class SiteController {

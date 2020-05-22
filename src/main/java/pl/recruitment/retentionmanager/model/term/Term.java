@@ -10,6 +10,7 @@ import java.time.LocalDate;
 /**
  * Database table pattern mapped into java object.
  * This is a description for a real terms used to sell a @Product to customers.
+ * @author: Michal Cop
  */
 @AllArgsConstructor
 @NoArgsConstructor
