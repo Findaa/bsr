@@ -58,7 +58,7 @@
     <br/>
     <br/>
     <form:form method="get" action="loadcsv">
-        <input type="submit" value="csv" width="50">
+        <input type="submit" value="xlsx" width="50">
     </form:form>
     <div class="logout">
         <form:form method="get" action="list">
