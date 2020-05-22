@@ -7,6 +7,9 @@ import pl.recruitment.retentionmanager.model.system.System;
 
 import java.util.List;
 
+/**
+ * Java persistence repository. Extended interface allows for crud operations on @Entity object.
+ */
 @Repository
 @Component
 public interface SystemRepo extends JpaRepository<System, Long> {

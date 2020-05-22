@@ -6,6 +6,9 @@ import pl.recruitment.retentionmanager.model.term.Term;
 
 import java.util.List;
 
+/**
+ * This interface describes available crud operations on @Term object repository.
+ */
 @Service
 @Primary
 public interface TermsServices {

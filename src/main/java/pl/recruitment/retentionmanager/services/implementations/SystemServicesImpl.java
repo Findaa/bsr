@@ -8,6 +8,9 @@ import pl.recruitment.retentionmanager.services.SystemServices;
 
 import java.util.List;
 
+/**
+ * Class implementing SystemServices methods, mostly CRUD operations.
+ */
 @Component
 public class SystemServicesImpl implements SystemServices {
     @Autowired

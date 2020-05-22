@@ -8,6 +8,9 @@ import pl.recruitment.retentionmanager.model.term.TermDto;
 
 import javax.servlet.http.HttpSession;
 
+/**
+ * This interface describes how helper method used in @Controller should look like.
+ */
 @Service
 @Primary
 public interface ControllerHelper {

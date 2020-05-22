@@ -4,6 +4,9 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 import pl.recruitment.retentionmanager.AppConfig;
 
+/**
+ * Class automating configuration based on classes.
+ */
 @Component
 class SpringInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
     @Override

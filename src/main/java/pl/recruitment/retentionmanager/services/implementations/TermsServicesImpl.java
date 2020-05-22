@@ -8,6 +8,9 @@ import pl.recruitment.retentionmanager.services.TermsServices;
 
 import java.util.List;
 
+/**
+ * Class implementing TermsServices methods, mostly CRUD operations.
+ */
 @Component
 public class TermsServicesImpl implements TermsServices {
     @Autowired

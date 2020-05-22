@@ -17,6 +17,9 @@ import java.time.LocalDate;
 import static pl.recruitment.retentionmanager.model.term.AmountPeriod.MONTH;
 import static pl.recruitment.retentionmanager.model.term.AmountType.NET;
 
+/**
+ * Initialization class for database records.
+ */
 @Component
 public class InitializeDatabase {
     @Autowired
@@ -28,6 +31,9 @@ public class InitializeDatabase {
     TermsServices terms;
     SystemServices systems;
 
+    /**
+     * Method called straight after app is deployed and ran.
+     */
     @PostConstruct
     public void init() {
         systems.save(new System("KUCYKt", "info", "technopozdro", "client"));

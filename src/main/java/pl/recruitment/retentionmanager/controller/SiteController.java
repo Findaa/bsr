@@ -7,13 +7,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import pl.recruitment.retentionmanager.services.ControllerHelper;
 import pl.recruitment.retentionmanager.services.implementations.ControllerHelperImpl;
 
+/**
+ * Main controller required for basic site to work.
+ */
 @Controller
 public class SiteController {
     @Autowired
     public SiteController(ControllerHelperImpl helper) {
         this.helper = helper;
     }
-
+        //Helper object with execution logic so controller stays clean.
     ControllerHelper helper;
 
     @GetMapping("/")

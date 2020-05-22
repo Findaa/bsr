@@ -13,6 +13,9 @@ import pl.recruitment.retentionmanager.services.implementations.ControllerHelper
 
 import javax.servlet.http.HttpSession;
 
+/**
+ * Controller used mostly to operate on @System object and it's views.
+ */
 @Controller
 public class SystemsController {
     @Autowired

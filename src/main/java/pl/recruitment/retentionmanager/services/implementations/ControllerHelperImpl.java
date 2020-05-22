@@ -16,7 +16,9 @@ import pl.recruitment.retentionmanager.services.TermsServices;
 import javax.servlet.http.HttpSession;
 import java.time.LocalDate;
 
-
+/**
+ * Implementation of @ControllerHelper interface.
+ */
 @Component
 public class ControllerHelperImpl implements ControllerHelper {
     @Autowired
@@ -30,24 +32,45 @@ public class ControllerHelperImpl implements ControllerHelper {
     SystemServices systems;
     PoiUtility poi;
 
+    /**
+     * Method used to set data in @list.jsp view terms table.
+     * @param session @HttpSession passed to helper.
+     * @return redirect to a component and send data with @HttpSession.
+     */
     @Override
     public String setProductsData(HttpSession session) {
         session.setAttribute("list", terms.findAll());
         return "redirect:/displaylist";
     }
 
+    /**
+     * Method used to set data in @systems.jsp view table
+     * @param session @HttpSession passed to helper.
+     * @return @systems.jsp component with data provided.
+     */
     @Override
     public String setSystemData(HttpSession session) {
         session.setAttribute("list", systems.findAll());
         return "systems";
     }
 
+    /**
+     * Method used to set data in @list.jsp view terms table with active terms only
+     * @param session @HttpSession passed to helper.
+     * @return redirect to a component and send data with @HttpSession.
+     */
     @Override
     public String setActiveProductsData(HttpSession session) {
         session.setAttribute("list", terms.fetchActive());
         return "redirect:/displaylist";
     }
 
+    /**
+     * Method prepares @editterm.jsp view data to allow edition/addition of @Term.
+     * @param id Term id (if null, new is created).
+     * @param session @HttpSession used to pass edition data.
+     * @param model Assigned as variable table for form inside @editterm.jsp
+     */
     //todo: add true/false button for net/brutton and month/year.
     @Override
     public void processEditTerms(Long id, HttpSession session, Model model) {
@@ -57,6 +80,12 @@ public class ControllerHelperImpl implements ControllerHelper {
         model.addAttribute("newterm", new TermDto());
     }
 
+    /**
+     * Method prepares @editsystem.jsp view data to allow edition/addition of @System.
+     * @param id System id (if null, new is created).
+     * @param session @HttpSession used to pass edition data.
+     * @param model Assigned as variable table for form inside @editsystem.jsp
+     */
     @Override
     public void processEditSystems(Long id, HttpSession session, Model model) {
         System system = systems.findAllById(id);
@@ -65,6 +94,13 @@ public class ControllerHelperImpl implements ControllerHelper {
         model.addAttribute("newsys", new System());
     }
 
+    /**
+     * Logic executed after @Term edition form is submitted.
+     * Includes crud operations and fills @list.jsp view with data.
+     * @param newTerm New @TermDto object passed from a form.
+     * @param session @HttpSession object that keeps data through process.
+     * @return @list component filled with new data.
+     */
     @Override
     public String afterEdit(TermDto newTerm, HttpSession session) {
         Term t = new Term();
@@ -98,9 +134,18 @@ public class ControllerHelperImpl implements ControllerHelper {
         return "list";
     }
 
+    /**
+     * Logic executed after @System edition form is submitted.
+     * Includes crud operations and fills @systems.jsp view with data.
+     * Also updates system and system name fields in @Term object that includes edited @System.
+     * @param system New @System object passed from a form.
+     * @param session @HttpSession object that keeps data through process.
+     * @return @systems.jsp component filled with new data.
+     */
     @Override
     public String afterEditSystem(System system, HttpSession session) {
         Long id = (long) session.getAttribute("id");
+        java.lang.System.out.println("Id: " + id);
         System s = systems.findAllById(id);
         Term t = terms.findAllBySystemName(s.getName());
 
@@ -112,21 +157,32 @@ public class ControllerHelperImpl implements ControllerHelper {
         t.setSystemName(s.getName());
         systems.save(s);
         terms.save(t);
-
         session.setAttribute("list", systems.findAll());
-        return "list";
+        return "systems";
     }
 
+    /**
+     * Delete endpoint handler.
+     * @param id @Term to be deleted.
+     */
     @Override
     public void delete(double id) {
         terms.delete(id);
     }
 
+    /**
+     * Delete endpoint handler.
+     * @param id @System to be deleted.
+     */
     @Override
     public void sysdelete(double id) {
         systems.delete(id);
     }
 
+    /**
+     * Import xlsx data to a @Term object.
+     * @param path Path to a file provided by a user form.
+     */
     @Override
     public void createRecordsFromXlxs(String path) {
         poi.create(path);

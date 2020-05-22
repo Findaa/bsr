@@ -13,6 +13,9 @@ import pl.recruitment.retentionmanager.services.implementations.ControllerHelper
 
 import javax.servlet.http.HttpSession;
 
+/**
+ * Controller used mostly to operate on @Term object and it's views.
+ */
 @Controller
 public class TermsController {
     @Autowired
@@ -74,7 +77,6 @@ public class TermsController {
 
     @PostMapping("/processLoadCsv")
     public String loadCsv(@ModelAttribute("path") String path, HttpSession session) {
-        System.out.println("In controller: " + path);
         helper.createRecordsFromXlxs(path);
         return helper.setProductsData(session);
     }

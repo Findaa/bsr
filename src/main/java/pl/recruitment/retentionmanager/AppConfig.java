@@ -22,6 +22,11 @@ import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 import java.util.Properties;
 
+/**
+ * This is a main configuration class. It is enabled to work with many configuration classes by @SpringInitializer class.
+ * More detailed data used in configuration is presented in @app.yml file linked in @PropertySource.
+ * Usage of Hibernate combined with @JpaRepository requires @EnableJpaRepositories annotation.
+ */
 @Configuration
 @EnableWebMvc
 @PropertySource("classpath:app.yml")

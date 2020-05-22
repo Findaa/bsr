@@ -22,6 +22,9 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.*;
 
+/**
+ * Class used to control POI library operations.
+ */
 @Component
 public class PoiUtilityImpl implements PoiUtility {
     @Autowired
@@ -33,6 +36,10 @@ public class PoiUtilityImpl implements PoiUtility {
     TermsServices terms;
     SystemServices systems;
 
+    /**
+     * Method called from a controller helper to initialize data import.
+     * @param path path to a file.
+     */
     public void create(String path) {
         //  /Users/michalcoo/IdeaProjects/javaProjects/retention-manager/src/main/resources/umowy_2016.xlsx
         File csv = new File(path);
@@ -100,7 +107,12 @@ public class PoiUtilityImpl implements PoiUtility {
         }
     }
 
-    List<TermDto> createElementList(List<String> in) {
+    /**
+     * Method generates @TermDto object list.
+     * @param in List of strings used to generate @return.
+     * @return List of @TermDto.
+     */
+    private List<TermDto> createElementList(List<String> in) {
         in.subList(0, 10).clear();
         int j = 1;
         List<Object> objectList = Arrays.asList(in.toArray());
