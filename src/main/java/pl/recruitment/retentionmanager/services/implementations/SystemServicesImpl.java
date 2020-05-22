@@ -10,7 +10,6 @@ import java.util.List;
 
 @Component
 public class SystemServicesImpl implements SystemServices {
-
     @Autowired
     SystemRepo repo;
 

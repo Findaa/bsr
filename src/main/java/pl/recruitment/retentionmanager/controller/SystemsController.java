@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import pl.recruitment.retentionmanager.model.system.System;
-import pl.recruitment.retentionmanager.model.term.TermDto;
 import pl.recruitment.retentionmanager.services.ControllerHelper;
 import pl.recruitment.retentionmanager.services.implementations.ControllerHelperImpl;
 
@@ -20,6 +19,7 @@ public class SystemsController {
     public SystemsController(ControllerHelperImpl helper) {
         this.helper = helper;
     }
+
     ControllerHelper helper;
 
     @GetMapping("/systems")
@@ -56,6 +56,4 @@ public class SystemsController {
         helper.sysdelete(idd);
         return "redirect:/systems";
     }
-
-
 }

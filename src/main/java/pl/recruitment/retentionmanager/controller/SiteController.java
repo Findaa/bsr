@@ -13,6 +13,7 @@ public class SiteController {
     public SiteController(ControllerHelperImpl helper) {
         this.helper = helper;
     }
+
     ControllerHelper helper;
 
     @GetMapping("/")

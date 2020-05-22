@@ -38,7 +38,6 @@ public class TermsController {
         return helper.setProductsData(session);
     }
 
-
     @GetMapping("/add")
     public String addTerm(Model model) {
         model.addAttribute("newterm", new TermDto());

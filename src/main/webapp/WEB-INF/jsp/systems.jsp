@@ -4,43 +4,41 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
 <html>
+
 <head>
-    <head>
-        <title>
-            Test
-        </title>
-        <link href="${pageContext.request.contextPath}/resources/static/css/style.css" rel="stylesheet">
-        <%--        <link href="${css}" rel="stylesheet"/>--%>
-        <%--        <spring:url value="/css/style.css" var="css"/>--%>
-        <spring:url value="/js/jquery.js" var="jq"/>
-        <spring:url value="/js/dataTables.js" var="dt"/>
-        <script src="${jq}"></script>
-        <link rel="stylesheet" type="text/css" href="../static/css/dataTables.css">
-        <script type="text/javascript" src="${dt}"></script>
-        <script type="text/javascript">
-            $(document).ready(function () {
-                $("#maintable").dataTable({
-                    "bJQueryUI" : true,
-                    "sPaginationType" : "full_numbers",
-                    "bRetrieve" : true,
-                    "bFilter" : true,
-                    "iDisplayLength": 10,
-                    "bProcessing" : true,
-                    "bServerSide" : false,
-                    "aoColumns" : [ { "bSearchable" : false,"bVisible" : false,
-                        "asSorting" : [ "asc" ] },
-                        {"sWidth" : "50%","bSortable" : true },
-                        {"sWidth" : "50%","bSortable" : true },
-                    ]
-                });
-                });
+    <title>View Systems</title>
+    <link href="${pageContext.request.contextPath}/resources/static/css/style.css" rel="stylesheet">
+    <spring:url value="/js/jquery.js" var="jq"/>
+    <spring:url value="/js/dataTables.js" var="dt"/>
+    <script src="${jq}"></script>
+    <link rel="stylesheet" type="text/css" href="../static/css/dataTables.css">
+    <script type="text/javascript" src="${dt}"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#maintable").dataTable({
+                "bJQueryUI": true,
+                "sPaginationType": "full_numbers",
+                "bRetrieve": true,
+                "bFilter": true,
+                "iDisplayLength": 10,
+                "bProcessing": true,
+                "bServerSide": false,
+                "aoColumns": [{
+                    "bSearchable": false, "bVisible": false,
+                    "asSorting": ["asc"]
+                },
+                    {"sWidth": "50%", "bSortable": true},
+                    {"sWidth": "50%", "bSortable": true},
+                ]
             });
-        </script>
-    </head>
+        });
+    </script>
 </head>
+
 <body>
 <br/>
 <br/>
+CSS taki, a nie inny, bo chcialem uzyc domyslnego jQuery DataTable.
 <br/>
 <br/>
 <div>

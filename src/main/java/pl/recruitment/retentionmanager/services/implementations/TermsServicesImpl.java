@@ -2,9 +2,7 @@ package pl.recruitment.retentionmanager.services.implementations;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
 import pl.recruitment.retentionmanager.model.term.Term;
-
 import pl.recruitment.retentionmanager.repositories.TermsRepo;
 import pl.recruitment.retentionmanager.services.TermsServices;
 
@@ -20,37 +18,37 @@ public class TermsServicesImpl implements TermsServices {
     TermsRepo repo;
 
     @Override
-    public List<Term> findAll(){
+    public List<Term> findAll() {
         return repo.findAll();
     }
 
     @Override
-    public void save(Term term){
+    public void save(Term term) {
         repo.save(term);
     }
 
     @Override
-    public Term findAllById(Long id){
+    public Term findAllById(Long id) {
         return repo.findAllById(id);
     }
 
     @Override
-    public void add(Term term){
+    public void add(Term term) {
         repo.save(term);
     }
 
     @Override
-    public List<Term> fetchActive(){
+    public List<Term> fetchActive() {
         return repo.findAllByActive(true);
     }
 
     @Override
-    public void delete(double id){
+    public void delete(double id) {
         repo.delete(repo.findAllById((long) id));
     }
 
     @Override
-    public Term findAllBySystemName(String name){
+    public Term findAllBySystemName(String name) {
         return repo.findAllBySystemName(name);
     }
 }

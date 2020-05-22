@@ -10,8 +10,12 @@ import java.util.List;
 @Primary
 public interface SystemServices {
     List<System> findAll();
+
     System findAllById(Long id);
+
     System findAllByName(String name);
+
     void save(System system);
+
     void delete(double id);
 }

@@ -34,9 +34,9 @@ public class PoiUtilityImpl implements PoiUtility {
     SystemServices systems;
 
     public void create(String path) {
-        File csv = new File("/Users/michalcoo/IdeaProjects/javaProjects/retention-manager/src/main/resources/umowy_2016.xlsx");
+        //  /Users/michalcoo/IdeaProjects/javaProjects/retention-manager/src/main/resources/umowy_2016.xlsx
+        File csv = new File(path);
         List<String> elements = new ArrayList<>();
-
         try {
             FileInputStream inputStream = new FileInputStream(csv);
             XSSFWorkbook workbook = new XSSFWorkbook(inputStream);
@@ -59,19 +59,12 @@ public class PoiUtilityImpl implements PoiUtility {
                     }
                 }
             }
-            java.lang.System.out.println("List in POI.create method: " + elements.toString());
         } catch (Exception e) {
             e.printStackTrace();
         }
         List<TermDto> dtos = createElementList(elements);
-        java.lang.System.out.println("dtos: " + dtos);
-        java.lang.System.out.println("dtos: " + dtos.get(0).getSystem() + dtos.get(0).getAmount());
-        java.lang.System.out.println("dtos: " + dtos.get(1).getSystem());
-        java.lang.System.out.println("dtos: " + dtos.get(2).getSystem());
-        java.lang.System.out.println("size dtos: " + dtos.size());
 
         for (TermDto el : dtos) {
-            java.lang.System.out.println("sys " + el.getSystem());
             if (systems.findAllByName(el.getSystem()) == null) {
                 systems.save(new System(el.getSystem()));
             }
@@ -82,7 +75,6 @@ public class PoiUtilityImpl implements PoiUtility {
             term.setFromDate(LocalDate.of(Integer.parseInt(el.getFromDate().substring(0, 3)),
                     Integer.parseInt(el.getFromDate().substring(5, 7)),
                     Integer.parseInt(el.getFromDate().substring(8, 10))));
-            java.lang.System.out.println("Fetched date: " + el.getToDate());
             try {
                 term.setToDate(LocalDate.of(Integer.parseInt(el.getToDate().substring(0, 3)),
                         Integer.parseInt(el.getToDate().substring(5, 6)),
@@ -90,21 +82,16 @@ public class PoiUtilityImpl implements PoiUtility {
             } catch (Exception e) {
                 term.setToDate(LocalDate.of(1111, 11, 11));
                 el.setToDate("1111-11-11");
-                java.lang.System.out.println("Catch date: " + term.getToDate());
             }
-            try{
+            try {
                 term.setAmount(Double.parseDouble(el.getAmount().replaceAll("[\\D&&[^.]]", "")));
-            } catch(NumberFormatException nfe){
+            } catch (NumberFormatException nfe) {
                 term.setAmount(0.0);
             }
             term.setAmountType(AmountType.valueOf(el.getAmountType()));
             term.setAmountPeriod(AmountPeriod.valueOf(el.getAmountPeriod()));
-            java.lang.System.out.println("Auth percent: " + Integer.parseInt(el.getAuthorizationPercent()));
             term.setAuthorizationPercent(Integer.parseInt(el.getAuthorizationPercent()));
             term.setActive(el.isActive());
-            java.lang.System.out.println("Adding term " + term.getSystemName() + "1 " + term.getToDate() + "2 "
-                    + "system not used" + "3 " + term.getFromDate() + "4 " + term.getOrderNumber() + "5 " + term.getRequest()
-                    + "6 " + term.getAmount() + term.getAmountPeriod() + "7 " + term.getAmountType() + "8 " + term.getAuthorizationPercent() + "9 ");
             try {
                 terms.save(term);
             } catch (Error e) {
@@ -127,7 +114,7 @@ public class PoiUtilityImpl implements PoiUtility {
                     j++;
                     break;
                 case 2:
-                    term.setRequest(o.toString().substring(0, o.toString().length()-2));
+                    term.setRequest(o.toString().substring(0, o.toString().length() - 2));
                     j++;
                     break;
                 case 3:
@@ -147,14 +134,14 @@ public class PoiUtilityImpl implements PoiUtility {
                 case 5:
                     try {
                         if (o.toString().contains("-")) {
-                            term.setFromDate("1111-11-11");
+                            term.setToDate("1111-11-11");
                         } else {
                             Date javaDate = DateUtil.getJavaDate(Double.parseDouble(o.toString()));
-                            term.setFromDate(new SimpleDateFormat("yyyy-MM-dd").format(javaDate));
+                            term.setToDate(new SimpleDateFormat("yyyy-MM-dd").format(javaDate));
 
                         }
                     } catch (NumberFormatException nfe) {
-                        term.setFromDate("1111-11-11");
+                        term.setToDate("1111-11-11");
                         nfe.printStackTrace();
                     }
                     j++;
@@ -172,7 +159,7 @@ public class PoiUtilityImpl implements PoiUtility {
                     j++;
                     break;
                 case 9:
-                    term.setAuthorizationPercent(o.toString().substring(0, o.toString().length()-2));
+                    term.setAuthorizationPercent(o.toString().substring(0, o.toString().length() - 2));
                     j++;
                     break;
                 case 10:
@@ -183,8 +170,6 @@ public class PoiUtilityImpl implements PoiUtility {
                     break;
             }
         }
-        java.lang.System.out.println("List in createElementList: " + l);
-        java.lang.System.out.println("size: " + l.size());
         return l;
     }
 }

@@ -39,8 +39,6 @@ public class InitializeDatabase {
         systems.save(new System("KOJOTEKt", "info6", "techn", "clientspeaks"));
         systems.save(new System("WYMYSLONYSTWOR", "info7", "techno1414", "clientwants"));
         systems.save(new System("WYMYSLONYSTWOR2", "info8", "techno1516545", "clientcalls"));
-
-
         terms.save(new Term("KUCYKt", 2222, "22/2011",
                 LocalDate.of(2012, 02, 02), LocalDate.of(2014, 04, 3),
                 100.00, NET, MONTH, 2, true));
