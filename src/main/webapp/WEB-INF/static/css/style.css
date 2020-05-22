@@ -2,6 +2,7 @@
 html {
     font-family: 'Montserrat', sans-serif;
 }
+
 body {
     background-color: azure;
     text-align: center;
@@ -16,60 +17,20 @@ body {
     font-style: italic;
     font-size: 13px;
     margin-top: 150px;
-
-}
-
-.sellcheckbox {
-    position: center;
-    left: 0px;
-    top: 0px;
-    border: 8px cadetblue;
-    font-family: Calibri;
-    font-style: italic;
-    font-size: 13px;
-    margin-left: 40%;
-    margin-top: 0%;
-}
-
-sell{
-    margin-left: 65px;
-    word-spacing: 290px;
-}
-
-d{
-    margin-left: 65px;
-    word-spacing: 230px;
-}
-
-
-
-
-.tt {
-    position: relative;
-    left: 0px;
-    top: 0px;
-    border: 8px cadetblue;
-    font-family: DINPro-Regular;
-    font-size: 28px;
-    margin-top: 10%;
-    font-family: Calibri;
-    font-style: italic;
-    font-size: 13px;
-
 }
 
 input[type=submit] {
-    padding:8px;
-    width:300px;
-    background:#b3e0ff;
-    border:0 none;
-    cursor:pointer;
+    padding: 8px;
+    width: 300px;
+    background: #b3e0ff;
+    border: 0 none;
+    cursor: pointer;
     -webkit-border-radius: 5px;
     border-radius: 5px;
     margin-bottom: 3px;
 }
 
-input[type=text]{
+input[type=text] {
     width: 300px;
     border: 2px solid #aaaaaa;
     border-radius: 4px;
@@ -78,18 +39,8 @@ input[type=text]{
     padding: 8px;
     box-sizing: border-box;
 }
-select.ticketMessage{
-    width: 300px;
-    height: 35px;
 
-    border: 2px solid #aaaaaa;
-    border-radius: 4px;
-    margin: 8px 0;
-    outline: none;
-    padding: 8px;
-    box-sizing: border-box;
-}
-select.openClose{
+select.openClose {
     width: 110px;
     height: 35px;
     border: 2px solid #aaaaaa;
@@ -101,7 +52,7 @@ select.openClose{
 }
 
 
-select{
+select {
     width: 300px;
     border: 2px solid #aaaaaa;
     border-radius: 4px;
@@ -110,42 +61,11 @@ select{
     padding: 8px;
     box-sizing: border-box;
 }
-input[type=password]{
-    width: 300px;
-    border: 2px solid #aaaaaa;
-    border-radius: 4px;
-    margin: 8px 0;
-    outline: none;
-    padding: 8px;
-    box-sizing: border-box;
-}
-tab1{
-    padding-left: 150px;
-}
 
-tab2{
-    padding-left: 300px;
-    font-family: Calibri;
-    font-style: italic;
-    font-size: 13px;
-
-}
-
-.logout{
+.logout {
     position: fixed;
     top: 0%;
     right: 0%;
-
-}
-
-input[type=checkbox]
-{
-    /* Double-sized Checkboxes */
-    -ms-transform: scale(1.5); /* IE */
-    -moz-transform: scale(1.5); /* FF */
-    -webkit-transform: scale(1.5); /* Safari and Chrome */
-    -o-transform: scale(1.5); /* Opera */
-    padding: 10px;
 }
 
 form {
@@ -162,10 +82,11 @@ td, th {
     text-align: left;
     border-bottom: 1px solid #ddd;
 }
+
 thead {
     width: 100%;
 }
 
-tbody{
+tbody {
     overflow: auto;
 }

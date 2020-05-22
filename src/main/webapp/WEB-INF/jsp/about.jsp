@@ -3,17 +3,15 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <html>
-<head>
-    <title>
-        Test
-    </title>
-    <link href="${pageContext.request.contextPath}/resources/static/css/style.css" rel="stylesheet">
 
+<head>
+    <title>About</title>
+    <link href="${pageContext.request.contextPath}/resources/static/css/style.css" rel="stylesheet">
     <spring:url value="/css/style.css" var="css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <link href="${css}" rel="stylesheet"/>
-
 </head>
+
 <body>
 <br/>
 <br/>

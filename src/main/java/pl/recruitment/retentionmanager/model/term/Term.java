@@ -7,6 +7,11 @@ import pl.recruitment.retentionmanager.model.system.System;
 import javax.persistence.*;
 import java.time.LocalDate;
 
+/**
+ * Database table pattern mapped into java object.
+ * This is a description for a real terms used to sell a @Product to customers.
+ * @author: Michal Cop
+ */
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -27,8 +32,6 @@ public class Term {
         this.authorizationPercent = authorizationPercent;
         this.active = isActive;
     }
-
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="terms_id")
@@ -53,8 +56,8 @@ public class Term {
     @Getter @Setter private int authorizationPercent;
     @Column(name="active_flag")
     @Getter @Setter private boolean active;
-    @Nullable
 
+    @Nullable
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "term_product",
             joinColumns = @JoinColumn(name = "listed_system"),

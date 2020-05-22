@@ -1,7 +1,5 @@
 package pl.recruitment.retentionmanager;
 
-import org.omg.CORBA.Environment;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -18,12 +16,19 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.handler.SimpleMappingExceptionResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 import java.util.Properties;
 
+/**
+ * This is a main configuration class. It is enabled to work with many configuration classes by @SpringInitializer class.
+ * More detailed data used in configuration is presented in @app.yml file linked in @PropertySource.
+ * Usage of Hibernate combined with @JpaRepository requires @EnableJpaRepositories annotation.
+ * @author: Michal Cop
+ */
 @Configuration
 @EnableWebMvc
 @PropertySource("classpath:app.yml")
@@ -35,6 +40,7 @@ public class AppConfig implements WebMvcConfigurer {
         registry.setOrder(Integer.MIN_VALUE);
         registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
         registry.addResourceHandler("/css/**").addResourceLocations("/WEB-INF/static/css/");
+        registry.addResourceHandler("/js/**").addResourceLocations("/WEB-INF/static/js");
     }
 
     @Bean
@@ -56,12 +62,12 @@ public class AppConfig implements WebMvcConfigurer {
     }
 
     @Bean
-    public DataSource dataSource(){
+    public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
         dataSource.setUrl("jdbc:mysql://localhost:3306/deals?useSSL=false&allowPublicKeyRetrieval=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC");
-        dataSource.setUsername( "root" );
-        dataSource.setPassword( "12345678" );
+        dataSource.setUsername("root");
+        dataSource.setPassword("12345678");
         return dataSource;
     }
 

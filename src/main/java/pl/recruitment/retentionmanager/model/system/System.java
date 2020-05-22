@@ -1,15 +1,17 @@
 package pl.recruitment.retentionmanager.model.system;
 
-import com.sun.istack.Nullable;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import pl.recruitment.retentionmanager.model.term.Term;
 
 import javax.persistence.*;
-import java.util.Map;
 
+/**
+ * Database table pattern mapped into java object.
+ * This is a description for a real System product in a company sold to customers in @Terms.
+ * @author: Michal Cop
+ */
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -34,7 +36,17 @@ public class System {
         this.client = client;
     }
 
+    public System(String name, String info) {
+        this.name = name;
+        this.info = info;
+        this.technologies = "No technologies specified";
+        this.client = "No client specified";
+    }
+
     public System(String name) {
         this.name = name;
+        this.info = "No info specified";
+        this.technologies = "No technologies specified";
+        this.client = "No client specified";
     }
 }

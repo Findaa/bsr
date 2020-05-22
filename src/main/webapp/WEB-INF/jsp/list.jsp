@@ -4,20 +4,16 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
 <html>
+
 <head>
-    <head>
-        <title>
-            Test
-        </title>
-        <link href="${pageContext.request.contextPath}/resources/static/css/style.css" rel="stylesheet">
-        <script src="../static/js/sorttable.js"></script>
-        <spring:url value="/css/style.css" var="css"/>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-        <link href="${css}" rel="stylesheet"/>
-
-
-    </head>
+    <title>View Terms</title>
+    <link href="${pageContext.request.contextPath}/resources/static/css/style.css" rel="stylesheet">
+    <script src="../static/js/sorttable.js"></script>
+    <spring:url value="/css/style.css" var="css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <link href="${css}" rel="stylesheet"/>
 </head>
+
 <body>
 <br/>
 <br/>
@@ -27,14 +23,14 @@
     <table id="maintable" class="sortable">
         <thead>
         <tr>
-            <th><font color="#32cd32"> Numer umowy</font></th>
+            <th><font color="#32cd32"> Terms number</font></th>
             <th><font color="#32cd32"> System</font></th>
-            <th><font color="#32cd32"> Od</font></th>
-            <th><font color="#32cd32"> Do</font></th>
-            <th><font color="#32cd32"> Wplywy</font></th>
-            <th><font color="#32cd32"> W skali</font></th>
-            <th><font color="#32cd32"> Aktywna</font></th>
-            <th><font color="#32cd32"> Opcje</font></th>
+            <th><font color="#32cd32"> From</font></th>
+            <th><font color="#32cd32"> To</font></th>
+            <th><font color="#32cd32"> Income</font></th>
+            <th><font color="#32cd32"> In scale of</font></th>
+            <th><font color="#32cd32"> Active</font></th>
+            <th><font color="#32cd32"> Options</font></th>
         </tr>
         </thead>
         <tbody>
@@ -55,6 +51,11 @@
     <br/>
     <br/>
     <a href="/retention_manager_war_exploded/add">Add new term</a>
+    <br/>
+    <br/>
+    <form:form method="get" action="loadcsv">
+        <input type="submit" value="xlsx" width="50">
+    </form:form>
     <div class="logout">
         <form:form method="get" action="list">
             <input type="submit" value="All documents">

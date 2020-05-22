@@ -5,17 +5,21 @@
 <html>
 
 <head>
-    <title>rental manager</title>
+    <title>xlsx Loader</title>
     <link href="${pageContext.request.contextPath}/resources/static/css/style.css" rel="stylesheet">
+    <script src="../static/js/sorttable.js"></script>
     <spring:url value="/css/style.css" var="css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <link href="${css}" rel="stylesheet"/>
 </head>
 
 <body>
-<br/>
-<br/>
-<br/>
+<div class="relation">
+    <form:form method="post" action="/retention_manager_war_exploded/processLoadCsv" modelAttribute="path">
+        <input type="text" name="path" placeholder="C:/Users/ /Documents/ .xlsx" required/>
+        <input type="submit" value="Upload"/>
+    </form:form>
+</div>
 <div class="logout">
     <form:form method="get" action="list">
         <input type="submit" value="All documents">

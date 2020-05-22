@@ -6,6 +6,10 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.stereotype.Component;
 
+/**
+ * Data transfer object for jsp forms.
+ * @author: Michal Cop
+ */
 @NoArgsConstructor
 @AllArgsConstructor
 @Component
