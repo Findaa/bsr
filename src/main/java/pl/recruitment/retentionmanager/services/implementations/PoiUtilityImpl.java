@@ -38,6 +38,7 @@ public class PoiUtilityImpl implements PoiUtility {
 
     /**
      * Method called from a controller helper to initialize data import.
+     *
      * @param path path to a file.
      */
     public void create(String path) {
@@ -68,6 +69,7 @@ public class PoiUtilityImpl implements PoiUtility {
             }
         } catch (Exception e) {
             e.printStackTrace();
+            return;
         }
         List<TermDto> dtos = createElementList(elements);
 
@@ -109,6 +111,7 @@ public class PoiUtilityImpl implements PoiUtility {
 
     /**
      * Method generates @TermDto object list.
+     *
      * @param in List of strings used to generate @return.
      * @return List of @TermDto.
      */
