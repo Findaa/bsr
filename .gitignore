@@ -5,3 +5,8 @@
 /contentfiles
 /lsp
 /target
+.javadocs
+/javadocs
+..DS_store
+/DocsFolder
+.DocsFolder

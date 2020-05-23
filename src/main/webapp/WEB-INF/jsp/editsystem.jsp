@@ -17,7 +17,7 @@
 <div class="relation">
     <form:form method="post" action="/retention_manager_war_exploded/updatesystem" modelAttribute="newsys">
         <table>
-            <thead>Edit Terms</thead>
+            <thead>Edit Systems</thead>
             <tbody>
             <tr>
                 <d>
@@ -47,7 +47,7 @@
 <div class="relation">
     <c:set var="id" scope="request" value="${sys.name}"/>
     <c:if test="${id != null}">
-    <form:form method="post" action="sysdelete/${id}">
+    <form:form method="get" action="sysdelete/${idsession}">
     <input type="submit" value="Delete term"/>
     </form:form>
     </c:if>
