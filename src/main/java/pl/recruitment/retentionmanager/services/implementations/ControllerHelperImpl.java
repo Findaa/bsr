@@ -194,7 +194,7 @@ public class ControllerHelperImpl implements ControllerHelper {
     public void sysdelete(double id) {
         java.lang.System.out.println("Trying to delete with id: " + id);
         System s = systems.findAllById((long) id);
-        java.lang.System.out.println("Found system: " + s);
+        java.lang.System.out.println("Found system: " + s.getName());
         if(terms.findAllBySystemName(s.getName()) == null) systems.delete(id);
         else java.lang.System.out.println("Cannot delete system that is used in Term");
     }

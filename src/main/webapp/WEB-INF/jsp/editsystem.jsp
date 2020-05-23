@@ -47,7 +47,7 @@
 <div class="relation">
     <c:set var="id" scope="request" value="${sys.name}"/>
     <c:if test="${id != null}">
-    <form:form method="get" action="sysdelete?${id}">
+    <form:form method="get" action="sysdelete/${idsession}">
     <input type="submit" value="Delete term"/>
     </form:form>
     </c:if>
