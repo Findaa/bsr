@@ -19,4 +19,5 @@ public interface TermsRepo extends JpaRepository<Term, Long> {
     Term findAllById(Long id);
     List<Term> findAllByActive(boolean active);
     Term findAllBySystemName(String name);
+
 }

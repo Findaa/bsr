@@ -52,11 +52,13 @@ public class SystemsController {
     @GetMapping("/editsystem")
     public String editor(HttpSession session) {
         session.setAttribute("sys", session.getAttribute("sys"));
+        session.setAttribute("id", session.getAttribute("id"));
         return "editsystem";
     }
 
-    @PostMapping("/sysdelete/{idd}")
+    @GetMapping("/sysdelete?{idd}")
     public String delete(@PathVariable double idd) {
+        java.lang.System.out.println("Got to sysdelete with id: " + idd);
         helper.sysdelete(idd);
         return "redirect:/systems";
     }
